@@ -39,13 +39,13 @@ imagenet/
 To train ClusTR-b1 on ImageNet on a single node with 8 gpus for 300 epochs run:
 
 ```
-sh dist_train.sh configs/ClusTR/ClusTR_b1.py 8 --data-path ImageNet --batch-size 128 --epochs 300
+./dist_train.sh configs/ClusTR/ClusTR_b1.py 8 --data-path ImageNet --batch-size 128 --epochs 300
 ```
 
 ## Evaluation
 To evaluate a pre-trained ClusTR-b1 on ImageNet val with a single GPU run:
 ```
-sh dist_train.sh configs/ClusTR/ClusTR_b1.py 1 --data-path ImageNet --resume /path/to/checkpoint_file --eval
+./dist_train.sh configs/ClusTR/ClusTR_b1.py 1 --data-path ImageNet --resume /path/to/checkpoint_file --eval
 ```
 
 
