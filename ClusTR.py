@@ -45,8 +45,7 @@ def cluster_dpc_knn_ms(x, cluster_num, k=5, token_mask=None):
     with torch.no_grad():
         B, N, C = x.shape
 
-        dist_matrix = torch.cdist(x, x, p=1, compute_mode='use_mm_for_euclid_dist_if_necessary') / (C ** 0.5)
-        # dist_matrix = torch.norm(x, dim=-1) / (C ** 0.5)
+        dist_matrix = torch.cdist(x, x) / (C ** 0.5)
         dist_matrix = dist_matrix.type(x.dtype)
 
         if token_mask is not None:
