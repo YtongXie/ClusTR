@@ -215,7 +215,7 @@ class Attention(nn.Module):
     def ms_kv(self, x, B, N, num_clusters, token_weight):
 
         buckets = []
-        steps = 8      # steps = 1 when computing FLOPS
+        steps = 4      # steps = 1 when computing FLOPS
         for i in range(0,B,B//steps):
             idx_cluster, _ = cluster_dpc_knn_ms(x[i:i+B//steps], num_clusters, k=5)
             buckets.append(idx_cluster)
